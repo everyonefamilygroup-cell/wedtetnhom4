@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tết Bính Ngọ 2026 – Nhóm 12A1</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <!-- Google Font: đậm chất xuân -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    /* GIỮ NGUYÊN CSS – đã tối ưu Tết */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #fef5e7;
+      color: #2d1e0e;
+      overflow-x: hidden;
+    }
+    .tet-bg {
+      background-image: radial-gradient(circle at 10% 20%, rgba(255,200,120,0.2) 0%, transparent 25%),
+                        radial-gradient(circle at 95% 75%, rgba(210,80,80,0.15) 0%, transparent 30%);
+    }
+    /* Trang ngoài */
+    .external-page {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: linear-gradient(145deg, #c92a2a, #9f2020);
+      z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; transition: opacity 0.8s ease; border: 12px solid #ffcd7e;
+      box-shadow: inset 0 0 50px rgba(255,215,0,0.5);
+    }
+    .external-page.hidden { opacity: 0; pointer-events: none; }
+    .external-decor { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+    .ext-icon {
+      position: absolute; font-size: 80px; color: rgba(255,255,200,0.25);
+      animation: float 8s infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-25px) rotate(8deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    .external-title {
+      font-size: 90px; font-weight: 900; font-family: 'Playfair Display', serif;
+      color: #ffe680; text-shadow: 8px 8px 0 #882020, 12px 12px 10px rgba(0,0,0,0.2);
+      margin-bottom: 30px; z-index: 10;
+    }
+    .enter-btn {
+      background: radial-gradient(circle at 30% 30%, #ffc107, #d45a1e);
+      border: none; color: white; font-size: 40px; font-weight: bold; padding: 25px 70px;
+      border-radius: 80px; border: 6px solid #fff2b5; box-shadow: 0 20px 30px #6f1a1a;
+      cursor: pointer; transition: 0.25s; display: flex; align-items: center; gap: 20px; z-index: 15;
+    }
+    .enter-btn:hover { transform: scale(1.1); background: radial-gradient(circle at 30% 30%, #ffd54f, #b8431a); border-color: #ffffc1; box-shadow: 0 25px 40px #501414; }
+    .enter-btn:active { transform: scale(0.95); }
+    /* Main website */
+    .main-website { display: none; opacity: 0; transition: opacity 0.6s; min-height: 100vh; background: #fef5e7; }
+    .main-website.show { display: block; opacity: 1; }
+    /* Nút nổi */
+    .home-floating-btn {
+      position: fixed; bottom: 30px; right: 30px;
+      background: radial-gradient(circle at 35% 35%, #ff9f4b, #c92a2a);
+      width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+      color: white; font-size: 36px; box-shadow: 0 10px 20px #7a2a2a; cursor: pointer; transition: 0.2s;
+      border: 5px solid #ffcd7e; z-index: 1001;
+    }
+    .home-floating-btn:hover { transform: scale(1.15) rotate(8deg); background: radial-gradient(circle at 35% 35%, #ffb347, #b02424); }
+    .home-floating-btn:active { transform: scale(0.9); }
+    .music-btn {
+      position: fixed; bottom: 30px; left: 30px; background: #a03a3a; color: #ffdb8e; width: 60px; height: 60px;
+      border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px;
+      border: 4px solid #ffcd7e; box-shadow: 0 5px 15px black; z-index: 1001; cursor: pointer; transition: 0.2s;
+    }
+    .music-btn:hover { background: #be4d4d; color: #fff1c1; transform: scale(1.1); }
+    /* Container */
+    .inner-container { max-width: 1300px; margin: 30px auto 20px; padding: 0 25px; }
+    .homepage, .section-page {
+      background: rgba(255, 245, 230, 0.9); backdrop-filter: blur(4px); border-radius: 60px 20px 60px 20px;
+      padding: 40px 45px; border: 4px solid #ff9f5b; box-shadow: 0 20px 30px rgba(150,60,20,0.25);
+      animation: fadeIn 0.4s;
+    }
+    .section-page { display: none; }
+    .section-page.active-section { display: block; }
+    @keyframes fadeIn { 0% { opacity: 0.2; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+    .back-home-btn {
+      background: #c0392b; color: white; border: none; padding: 14px 32px; border-radius: 50px;
+      font-size: 20px; font-weight: 600; cursor: pointer; transition: 0.2s; margin-bottom: 30px;
+      border: 2px solid #ffc857;
+    }
+    .back-home-btn:hover { background: #a52a1a; transform: scale(1.03); box-shadow: 0 0 15px #ffa500; }
+    /* Home menu */
+    .home-menu { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 50px; }
+    .home-btn {
+      background: #ffdd99; border: 4px solid #e67e22; border-radius: 40px; padding: 30px 20px; width: 180px;
+      text-align: center; cursor: pointer; transition: 0.25s; box-shadow: 12px 12px 0 #b6492a;
+    }
+    .home-btn:hover { transform: translate(-8px, -8px); box-shadow: 18px 18px 0 #914d2c; background: #ffe082; border-color: #c94a1e; }
+    .home-btn i { font-size: 58px; color: #b33b3b; margin-bottom: 15px; }
+    .home-btn span { font-size: 24px; font-weight: 700; color: #712525; }
+    /* Member */
+    .member-list { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 25px; }
+    .member-name-card {
+      background: #ffe5c4; border-radius: 50px 10px 50px 10px; padding: 30px 20px; width: 180px;
+      text-align: center; cursor: pointer; border: 3px solid #f39c4b; box-shadow: 8px 8px 0 #b6492a;
+      transition: 0.2s;
+    }
+    .member-name-card:hover { transform: translate(-6px, -6px); box-shadow: 14px 14px 0 #97412c; background: #ffdbb5; }
+    .member-name-card i { font-size: 52px; color: #b33b3b; margin-bottom: 10px; }
+    .member-name-card h3 { font-size: 20px; font-weight: 700; color: #712525; }
+    .member-detail {
+      display: none; background: #fff7e6; border-radius: 50px 10px; padding: 40px 45px;
+      border: 5px solid #ffa34d; box-shadow: 15px 15px 0 #b34e2a;
+    }
+    .member-detail.active-detail { display: block; }
+    .back-to-list-btn {
+      background: #d97747; color: white; border: none; padding: 10px 22px; border-radius: 40px;
+      font-size: 18px; margin-right: 15px; cursor: pointer;
+    }
+    /* ẢNH – dùng proxy thông minh, thử nhiều nguồn */
+    .member-photo {
+      width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
+      border: 10px solid #ffcf4a; box-shadow: 0 12px 0 #752626; margin: 0 auto 25px; display: block;
+      background: #ffe0b0;
+    }
+    .detail-info { background: #ffeac2; padding: 30px; border-radius: 30px; margin-top: 25px; font-size: 18px; line-height: 1.7; }
+    /* School */
+    .school-showcase { background: #fff8e7; border-radius: 40px; padding: 30px; border: 6px double #c1492b; }
+    .school-iframe { width: 100%; height: 350px; border: 4px solid #ff8f5b; border-radius: 20px; background: white; }
+    .festive-block { background: #ffedd4; border-left: 16px solid #d64545; padding: 25px; border-radius: 30px 8px; margin-bottom: 25px; }
+    footer { background: #712525; color: #ffde9e; text-align: center; padding: 30px; margin-top: 40px; border-radius: 80px 0 0 0; }
+  </style>
+</head>
+<body class="tet-bg">
+
+  <!-- NHẠC NỀN TẾT -->
+  <audio id="tetMusic" loop preload="auto">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ===== TRANG BÊN NGOÀI ===== -->
+  <div id="externalLanding" class="external-page">
+    <div class="external-decor">
+      <i class="fas fa-envelope ext-icon" style="top:10%; left:5%; font-size:100px;"></i>
+      <i class="fas fa-leaf ext-icon" style="top:70%; left:85%; font-size:110px; color:#ffd966; animation-delay:1s;"></i>
+      <i class="fas fa-dragon ext-icon" style="top:20%; left:80%; font-size:120px; animation-delay:2s;"></i>
+      <i class="fas fa-tree ext-icon" style="top:80%; left:15%; font-size:130px; animation-delay:0.5s;"></i>
+      <i class="fas fa-candy-cane ext-icon" style="top:15%; left:40%; font-size:90px; animation-delay:1.5s;"></i>
+    </div>
+    <h1 class="external-title">BÍNH NGỌ 2026</h1>
+    <div style="font-size:50px; color:#fff5cc; margin-bottom:20px;"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></div>
+    <button id="enterMainBtn" class="enter-btn"><i class="fas fa-door-open"></i> Vào trang chủ</button>
+    <p style="margin-top:60px; color:#fffacd; font-size:26px; background:rgba(100,20,20,0.5); padding:12px 35px; border-radius:60px;">
+      <i class="fas fa-dragon"></i> Ấm áp sum vầy – Rộn ràng sắc xuân <i class="fas fa-dragon"></i>
+    </p>
+  </div>
+
+  <!-- ===== MAIN WEBSITE ===== -->
+  <div id="mainWebsite" class="main-website">
+    <div class="home-floating-btn" id="homeBtn"><i class="fas fa-house-chimney"></i></div>
+    <div class="music-btn" id="musicToggle"><i class="fas fa-music" id="musicIcon"></i></div>
+
+    <div class="inner-container">
+      <!-- HOMEPAGE -->
+      <div id="homepageView" class="homepage">
+        <div style="text-align:center; position:relative;">
+          <div style="font-size:80px; color:#c0392b; opacity:0.2; position:absolute; top:-30px; left:-20px;"><i class="fas fa-leaf"></i></div>
+          <div style="font-size:80px; color:#c0392b; opacity:0.2; position:absolute; bottom:-30px; right:-20px;"><i class="fas fa-dragon"></i></div>
+          <h1 style="font-size:64px; font-family:'Playfair Display'; color:#982222; text-shadow:6px 6px 0 #ffc085;">TẾT BÍNH NGỌ 2026</h1>
+          <p style="font-size:26px; background:#fbe9b1; display:inline-block; padding:10px 35px; border-radius:60px; margin-top:20px; border:3px solid #ff7b42;">
+            <i class="fas fa-star"></i> NHÓM 12A1 <i class="fas fa-star"></i>
+          </p>
+          <div style="display:flex; justify-content:center; gap:40px; margin:50px 0 20px; font-size:60px; color:#d44c4c;">
+            <i class="fas fa-envelope"></i> <i class="fas fa-tree" style="color:#ed8a9c;"></i>
+            <i class="fas fa-leaf" style="color:#f4c542;"></i> <i class="fas fa-dragon" style="color:#c94a1e;"></i>
+          </div>
+        </div>
+        <h2 style="font-size:36px; color:#9f2b2b; margin-top:20px; text-align:center;">CÁC MỤC CHÍNH</h2>
+        <div class="home-menu">
+          <div class="home-btn" data-section="membersSection"><i class="fas fa-users"></i><span>Thành viên</span></div>
+          <div class="home-btn" data-section="projectSection"><i class="fas fa-laptop-code"></i><span>Dự án</span></div>
+          <div class="home-btn" data-section="schoolSection"><i class="fas fa-school"></i><span>Trường THPT</span></div>
+          <div class="home-btn" data-section="cuisineSection"><i class="fas fa-utensils"></i><span>Ẩm thực</span></div>
+          <div class="home-btn" data-section="lixiSection"><i class="fas fa-envelope-open-text"></i><span>Lì xì</span></div>
+          <div class="home-btn" data-section="lanSection"><i class="fas fa-dragon"></i><span>Lân sư rồng</span></div>
+        </div>
+        <footer style="background:none; color:#712525; padding:20px; margin-top:40px;">
+          🧧 Chúc mừng năm mới Bính Ngọ 2026 – An khang – Thịnh vượng 🧧
+        </footer>
+      </div>
+
+      <!-- SECTION: THÀNH VIÊN -->
+      <div id="membersSection" class="section-page">
+        <button class="back-home-btn"><i class="fas fa-arrow-left"></i> Về trang chủ</button>
+        <div id="memberListView" style="display:block;">
+          <h2 style="font-size:36px; color:#9f2b2b; border-bottom:4px solid #e68a4c;"><i class="fas fa-users"></i> 6 THÀNH VIÊN</h2>
+          <div class="member-list" id="memberNameList"></div>
+        </div>
+        <div id="memberDetailView" class="member-detail">
+          <div>
+            <button class="back-to-list-btn" id="backToListBtn"><i class="fas fa-arrow-left"></i> Danh sách</button>
+            <button class="back-home-btn" id="backFromDetailHomeBtn" style="background:#a0522d;"><i class="fas fa-home"></i> Về trang chủ</button>
+          </div>
+          <div id="memberDetailContent"></div>
+        </div>
+      </div>
+
+      <!-- CÁC SECTION KHÁC (đã có đủ nội dung) -->
+      <div id="projectSection" class="section-page">
+        <button class="back-home-btn"><i class="fas fa-arrow-left"></i> Về trang chủ</button>
+        <h2 style="font-size:36px; color:#a03737; border-left:15px solid #ff8f5a; padding-left:20px;">🎯 Dự án: “Tết số hóa – Nhóm 12A1”</h2>
+        <div style="background:#ffebc2; padding:30px; border-radius:40px 10px;">
+          <p style="font-size:20px;">✨ Website Tết Bính Ngọ đầu tay, ứng dụng kiến thức Tin học & văn hóa dân tộc. ✨</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:25px; margin-top:30px;">
+            <div><i class="fas fa-code" style="font-size:50px; color:#c0392b;"></i><h3>HTML/CSS/JS</h3><p>Hiệu ứng mượt, nhạc nền Tết.</p></div>
+            <div><i class="fas fa-paint-roller" style="font-size:50px; color:#c0392b;"></i><h3>Phong cách</h3><p>Đỏ – vàng, hoa mai, hoa đào.</p></div>
+            <div><i class="fas fa-user-tie" style="font-size:50px; color:#c0392b;"></i><h3>Phân công</h3><p>Châu (trưởng), Mai, Yến, Ngọc, Hạnh, Nhung.</p></div>
+            <div><i class="fas fa-calendar" style="font-size:50px; color:#c0392b;"></i><h3>Kế hoạch</h3><p>Hoàn thiện trước giao thừa 2026.</p></div>
+          </div>
+        </div>
+      </div>
+      <div id="schoolSection" class="section-page">
+        <button class="back-home-btn"><i class="fas fa-arrow-left"></i> Về trang chủ</button>
+        <h2 style="font-size:40px; color:#9b2c2c; text-align:center;"><i class="fas fa-school"></i> TRƯỜNG THPT THANH HÓA</h2>
+        <div class="school-showcase">
+          <iframe class="school-iframe" src="https://www.thptthanhhoa.edu" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation" referrerpolicy="no-referrer"></iframe>
+          <div style="text-align:center; margin-top:25px;">
+            <span style="background:#f7d44a; padding:10px 25px; border-radius:50px; font-size:20px;"><i class="fas fa-star"></i> Ngôi trường của 6 thành viên <i class="fas fa-star"></i></span>
+            <div style="margin-top:20px; background:#d4692b; display:inline-block; padding:12px 30px; border-radius:50px;">
+              <a href="https://www.thptthanhhoa.edu" target="_blank" style="color:white; font-weight:bold; text-decoration:none; font-size:20px;"><i class="fas fa-globe"></i> www.thptthanhhoa.edu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="cuisineSection" class="section-page">
+        <button class="back-home-btn"><i class="fas fa-arrow-left"></i> Về trang chủ</button>
+        <h2 style="font-size:36px; color:#b33f3f;"><i class="fas fa-utensils"></i> Ẩm thực ngày Tết</h2>
+        <div class="festive-block"><i class="fas fa-cookie-bite" style="font-size:48px; color:#aa4e2b;"></i><h3>Bánh chưng – bánh tét</h3><p>Bánh chưng xanh, bánh tét nhân chuối – nhóm tự tay gói và triển lãm ảnh.</p></div>
+        <div class="festive-block"><i class="fas fa-candy-cane" style="font-size:48px; color:#c7372f;"></i><h3>Mứt Tết & hạt dưa</h3><p>Mứt dừa, mứt gừng, hạt dưa đỏ – hương vị ngày xuân.</p></div>
+      </div>
+      <div id="lixiSection" class="section-page">
+        <button class="back-home-btn"><i class="fas fa-arrow-left"></i> Về trang chủ</button>
+        <h2 style="font-size:36px; color:#c55a2b;"><i class="fas fa-envelope-open-text"></i> Lì xì & may mắn</h2>
+        <div style="display:flex; gap:30px; flex-wrap:wrap;">
+          <div style="background:#ffdab0; border-radius:30px; padding:25px; flex:1;"><i class="fas fa-red-envelope" style="font-size:64px; color:#c0392b;"></i><p style="font-size:20px;">Phong bao lì xì đỏ thắm, tượng trưng cho lộc xuân. Nhóm thiết kế bao lì xì online.</p></div>
+          <div style="background:#ffeaa5; border-radius:30px; padding:25px; flex:1;"><i class="fas fa-hand-holding-heart" style="font-size:64px; color:#d46b4b;"></i><p style="font-size:20px;">Xông đất, hái lộc, viết câu đối – giữ gìn nét đẹp truyền thống.</p></div>
+        </div>
+      </div>
+      <div id="lanSection" class="section-page">
+        <button class="back-home-btn"><i class="fas fa-arrow-left"></i> Về trang chủ</button>
+        <h2 style="font-size:36px; color:#b6492a;"><i class="fas fa-dragon"></i> Lân sư rồng</h2>
+        <div style="background:#ffdbb5; border-radius:60px 10px; padding:30px; text-align:center;">
+          <i class="fas fa-dragon" style="font-size:90px; color:#be431e;"></i>
+          <p style="font-size:24px; margin:15px 0;">Múa lân đầu năm – xua đuổi tà khí, đem lại may mắn.</p>
+          <p>Thành viên Phùng Văn Hạnh là tay trống lân của trường.</p>
+          <div style="font-size:30px;">🥁🐉🥁</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------- DỮ LIỆU 6 THÀNH VIÊN – GIỮ NGUYÊN LINK ẢNH (IBB.CO) ----------
+    const members = [
+      { name: "Lưu Nguyễn Giang Châu", role: "Trưởng nhóm", class: "12A1", hobby: "Chụp ảnh phong cảnh, viết lịch Tết", trait: "Năng động, sáng tạo, thổi hồn Tết", wish: "🧧 Xuân an lành, vạn sự như ý!", photoUrl: "https://i.ibb.co/xqCLhLBk/IMG-1770812819687-1770814230015.jpg" },
+      { name: "Nguyễn Thị Quỳnh Mai", role: "Thành viên", class: "12A1", hobby: "Đọc sách, cắm hoa mai ngày Tết", trait: "Tỉ mỉ, có giọng hát hay, rất thích màu đỏ", wish: "🌸 Cung chúc tân niên, đỗ nguyện vọng 1!", photoUrl: "https://i.ibb.co/h1191rmt/IMG-1770812819900-1770814230431.jpg" },
+      { name: "Phạm Thị Ngọc Yến", role: "Thành viên", class: "12A1", hobby: "Vẽ tranh, làm bánh chưng", trait: "Khéo tay, vẽ hoa đào siêu đẹp", wish: "🧧 Tiền vô như nước, sức khỏe dồi dào!", photoUrl: "https://i.ibb.co/gLqZ5gKV/IMG-1770812819456-1770814229463.jpg" },
+      { name: "Nguyễn Như Ngọc", role: "Thành viên", class: "12A1", hobby: "Sưu tầm bao lì xì, viết thư pháp", trait: "Nét chữ đẹp, truyền cảm hứng Tết", wish: "🎋 Năm mới bình an, học giỏi!", photoUrl: "https://i.ibb.co/W4mZ6MtJ/IMG-1770812819265-1770814228837.jpg" },
+      { name: "Phùng Văn Hạnh", role: "Thành viên", class: "12A3", hobby: "Chơi trống lân, nhiếp ảnh", trait: "Nhiệt huyết, luôn mang không khí lân sư rồng", wish: "🦁 Phát tài phát lộc, lân đến nhà!", photoUrl: "https://i.ibb.co/1trxSVds/IMG-1770812818921-1770814226261.jpg" },
+      { name: "Hoàng Thị Hồng Nhung", role: "Thành viên", class: "12A2", hobby: "Làm thơ, gói bánh tét", trait: "Dịu dàng, nấu ăn ngon, yêu cổ truyền", wish: "🍊 Xuân sang cát tường, vạn sự hanh thông!", photoUrl: "https://i.ibb.co/hFmkbgYJ/IMG-1770812819095-1770814227351.jpg" }
+    ];
+
+    // ---------- DANH SÁCH PROXY – THỬ LẦN LƯỢT, ĐẢM BẢO ẢNH HIỆN RA ----------
+    const proxyList = [
+      // Proxy 1: images.weserv.nl (hiệu quả cao)
+      (url) => 'https://images.weserv.nl/?url=' + encodeURIComponent(url.replace('https://', '')),
+      // Proxy 2: allorigins (CORS, hoạt động tốt)
+      (url) => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url),
+      // Proxy 3: cors-anywhere (dùng máy chủ công cộng)
+      (url) => 'https://cors-anywhere.herokuapp.com/' + url,
+      // Proxy 4: thingproxy (dự phòng)
+      (url) => 'https://thingproxy.freeboard.io/fetch/' + url,
+      // Proxy 5: ảnh gốc (nếu không bị chặn)
+      (url) => url
+    ];
+
+    // Hàm tạo URL ảnh với proxy, thử dần
+    function getProxiedImageUrl(originalUrl, callback) {
+      let index = 0;
+      const img = new Image();
+      img.crossOrigin = 'Anonymous'; // hỗ trợ CORS
+      img.referrerPolicy = 'no-referrer'; // chống chặn referrer
+      
+      function tryNext() {
+        if (index >= proxyList.length) {
+          // Không proxy nào hoạt động -> trả về placeholder động
+          callback(null);
+          return;
+        }
+        const proxyUrl = proxyList[index](originalUrl);
+        img.onload = () => {
+          // Ảnh tải thành công
+          callback(proxyUrl);
+        };
+        img.onerror = () => {
+          index++;
+          tryNext();
+        };
+        img.src = proxyUrl;
+      }
+      tryNext();
+    }
+
+    // ---------- CHUYỂN TRANG ----------
+    const external = document.getElementById('externalLanding');
+    const mainWebsite = document.getElementById('mainWebsite');
+    const enterBtn = document.getElementById('enterMainBtn');
+    enterBtn.addEventListener('click', function() {
+      external.classList.add('hidden');
+      mainWebsite.classList.add('show');
+      if (audio.paused) audio.play();
+    });
+
+    const homepage = document.getElementById('homepageView');
+    const sections = document.querySelectorAll('.section-page');
+    const homeBtns = document.querySelectorAll('.home-btn');
+    const backHomeBtns = document.querySelectorAll('.back-home-btn');
+    const floatingHomeBtn = document.getElementById('homeBtn');
+
+    function showHomepage() {
+      homepage.style.display = 'block';
+      sections.forEach(s => s.classList.remove('active-section'));
+    }
+    function showSection(sectionId) {
+      homepage.style.display = 'none';
+      sections.forEach(s => s.classList.remove('active-section'));
+      document.getElementById(sectionId).classList.add('active-section');
+    }
+    homeBtns.forEach(btn => btn.addEventListener('click', function() { showSection(this.dataset.section); }));
+    backHomeBtns.forEach(btn => btn.addEventListener('click', showHomepage));
+    floatingHomeBtn.addEventListener('click', showHomepage);
+
+    // ---------- THÀNH VIÊN ----------
+    const memberListDiv = document.getElementById('memberNameList');
+    const memberListView = document.getElementById('memberListView');
+    const memberDetailView = document.getElementById('memberDetailView');
+    const memberDetailContent = document.getElementById('memberDetailContent');
+    const backToListBtn = document.getElementById('backToListBtn');
+    const backFromDetailHomeBtn = document.getElementById('backFromDetailHomeBtn');
+
+    function renderMemberNames() {
+      let html = '';
+      members.forEach((m, index) => {
+        html += `<div class="member-name-card" data-member-index="${index}"><i class="fas fa-user-circle"></i><h3>${m.name}</h3>${m.role === 'Trưởng nhóm' ? '<span style="background:#ffb444; padding:5px 12px; border-radius:30px; display:inline-block; margin-top:10px;">Trưởng nhóm</span>' : ''}</div>`;
+      });
+      memberListDiv.innerHTML = html;
+      document.querySelectorAll('.member-name-card').forEach(card => card.addEventListener('click', function() { showMemberDetail(this.dataset.memberIndex); }));
+    }
+
+    function showMemberDetail(index) {
+      const m = members[index];
+      
+      // Hiển thị ngay khung chờ (placeholder)
+      let detailHtml = `
+        <div style="text-align:center;">
+          <div class="member-photo" style="display:flex; align-items:center; justify-content:center; background:#f5e2ce;">
+            <i class="fas fa-spinner fa-pulse" style="font-size:48px; color:#a5583a;"></i>
+          </div>
+        </div>
+        <h2 style="font-size:32px; color:#7a2020; text-align:center;">${m.name}</h2>
+        <p style="background:#ffd966; display:inline-block; padding:8px 30px; border-radius:50px; font-weight:600; margin:10px auto; text-align:center;">${m.role}</p>
+        <div class="detail-info">
+          <p><i class="fas fa-graduation-cap" style="width:30px;"></i> Lớp: ${m.class}</p>
+          <p><i class="fas fa-heart" style="width:30px;"></i> Sở thích: ${m.hobby}</p>
+          <p><i class="fas fa-crown" style="width:30px;"></i> Đặc điểm nổi bật: ${m.trait}</p>
+          <p style="margin-top:20px; background:#b03939; color:white; padding:16px; border-radius:30px; font-style:italic;">🌟 Lời chúc Tết: ${m.wish}</p>
+        </div>
+      `;
+      memberDetailContent.innerHTML = detailHtml;
+      memberListView.style.display = 'none';
+      memberDetailView.classList.add('active-detail');
+
+      // Thử tải ảnh qua proxy, khi có kết quả thì cập nhật
+      getProxiedImageUrl(m.photoUrl, function(workingUrl) {
+        let imgHtml = '';
+        if (workingUrl) {
+          imgHtml = `<img src="${workingUrl}" alt="${m.name}" class="member-photo" referrerpolicy="no-referrer" crossorigin="anonymous">`;
+        } else {
+          // Tất cả proxy đều thất bại -> hiển thị avatar dạng chữ
+          imgHtml = `<div class="member-photo" style="display:flex; align-items:center; justify-content:center; background:#b34242; color:white; font-size:60px; font-weight:bold; border:10px solid #ffcf4a;">${m.name.charAt(0)}</div>`;
+        }
+        // Cập nhật lại nội dung với ảnh thật
+        let newDetailHtml = `
+          ${imgHtml}
+          <h2 style="font-size:32px; color:#7a2020; text-align:center;">${m.name}</h2>
+          <p style="background:#ffd966; display:inline-block; padding:8px 30px; border-radius:50px; font-weight:600; margin:10px auto; text-align:center;">${m.role}</p>
+          <div class="detail-info">
+            <p><i class="fas fa-graduation-cap" style="width:30px;"></i> Lớp: ${m.class}</p>
+            <p><i class="fas fa-heart" style="width:30px;"></i> Sở thích: ${m.hobby}</p>
+            <p><i class="fas fa-crown" style="width:30px;"></i> Đặc điểm nổi bật: ${m.trait}</p>
+            <p style="margin-top:20px; background:#b03939; color:white; padding:16px; border-radius:30px; font-style:italic;">🌟 Lời chúc Tết: ${m.wish}</p>
+          </div>
+        `;
+        memberDetailContent.innerHTML = newDetailHtml;
+      });
+    }
+
+    backToListBtn.addEventListener('click', function() {
+      memberListView.style.display = 'block';
+      memberDetailView.classList.remove('active-detail');
+    });
+    backFromDetailHomeBtn.addEventListener('click', function() {
+      showHomepage();
+      memberListView.style.display = 'block';
+      memberDetailView.classList.remove('active-detail');
+    });
+
+    // ---------- NHẠC NỀN ----------
+    const audio = document.getElementById('tetMusic');
+    const musicBtn = document.getElementById('musicToggle');
+    const musicIcon = document.getElementById('musicIcon');
+    audio.muted = true; audio.volume = 0.5; audio.play().catch(() => {});
+    let isMuted = true;
+    musicBtn.addEventListener('click', function() {
+      if (isMuted) { audio.muted = false; audio.play(); musicIcon.className = 'fas fa-volume-up'; isMuted = false; }
+      else { audio.muted = true; musicIcon.className = 'fas fa-music'; isMuted = true; }
+    });
+
+    // Khởi tạo
+    renderMemberNames();
+    showHomepage();
+  </script>
+</body>
+</html>
