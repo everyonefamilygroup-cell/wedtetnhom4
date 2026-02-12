@@ -140,7 +140,32 @@
     }
     .home-floating-btn:active { transform: scale(0.9); }
 
-   
+    /* Nút điều khiển nhạc */
+    .music-btn {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: #a03a3a;
+      color: #ffdb8e;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      border: 4px solid #ffcd7e;
+      box-shadow: 0 5px 15px black;
+      z-index: 1001;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .music-btn:hover {
+      background: #be4d4d;
+      color: #fff1c1;
+      transform: scale(1.1);
+    }
+
     /* CONTAINER CHÍNH – mọi nội dung bên trong main */
     .inner-container {
       max-width: 1300px;
@@ -339,6 +364,12 @@
   </style>
 </head>
 <body class="tet-bg">
+
+  <!-- NHẠC NỀN TẾT (muted + autoplay) -->
+  <audio id="tetMusic" loop preload="auto">
+    <source src="https://soundcloud.com/quanadn/mixtape-nhac-tet-2026-happy-new-year-vol-01-vietmix-by-quan-adn-t-lex?si=4a43e46f729a46e7ab1e9b442acabcd7&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing.mp3" type="audio/mpeg">
+  </audio>
+
   <!-- ===== TRANG BÊN NGOÀI – TRANG TRÍ TẾT ===== -->
   <div id="externalLanding" class="external-page">
     <div class="external-decor">
@@ -523,7 +554,7 @@
     const members = [
       { 
         name: "Lưu Nguyễn Giang Châu", role: "Trưởng nhóm", 
-        class: "12A10", hobby: "vui chơi , tìm hiểu sự mới mẻ", 
+        class: "12A10", hobby: "tham gia vui chơi,tìm hiểu điều mới", 
         trait: "Năng động, sáng tạo, thổi hồn Tết", 
         wish: "🧧 Xuân an lành, vạn sự như ý!",
         photoUrl: "chau.jpg",
@@ -540,7 +571,7 @@
       { 
         name: "Phạm Thị Ngọc Yến", role: "Thành viên", 
         class: "12A10", hobby: "tiền là nhất, chơi fifai, chơi thể thao", 
-        trait: "Khéo tay, ham học hỏi", 
+        trait: "Khéo tay,ham học hỏi", 
         wish: "🧧 Tiền vô như nước, sức khỏe dồi dào!",
         photoUrl: "yen.jpg",
         dob: "02/09/2008"
