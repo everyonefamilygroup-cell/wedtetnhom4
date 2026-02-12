@@ -397,7 +397,12 @@
     <div class="home-floating-btn" id="homeBtn">
       <i class="fas fa-house-chimney"></i>
     </div>
-   
+    <!-- NÚT ĐIỀU KHIỂN NHẠC -->
+    <div class="music-btn" id="musicToggle">
+      <i class="fas fa-music" id="musicIcon"></i>
+    </div>
+
+    <div class="inner-container">
       <!-- ===== HOMEPAGE – TRUNG TÂM ===== -->
       <div id="homepageView" class="homepage">
         <div style="text-align: center; position: relative;">
@@ -458,7 +463,7 @@
           <h2 style="font-size: 36px; color: #9f2b2b; border-bottom: 4px solid #e68a4c;"><i class="fas fa-users"></i> 6 THÀNH VIÊN</h2>
           <div class="member-list" id="memberNameList"></div>
         </div>
-        <!-- CHI TIẾT THÀNH VIÊN (TẤT CẢ ĐỀU HIỂN THỊ ẢNH THẬT VÀ NGÀY SINH) -->
+        <!-- CHI TIẾT THÀNH VIÊN (TẤT CẢ ĐỀU HIỂN THỊ ẢNH THẬT) -->
         <div id="memberDetailView" class="member-detail">
           <div>
             <button class="back-to-list-btn" id="backToListBtn"><i class="fas fa-arrow-left"></i> Danh sách</button>
@@ -550,55 +555,49 @@
   </div> <!-- end main-website -->
 
   <script>
-    // ---------- DỮ LIỆU 6 THÀNH VIÊN (ĐỦ ẢNH THẬT + NGÀY THÁNG NĂM SINH) ----------
+    // ---------- DỮ LIỆU 6 THÀNH VIÊN (ĐỦ ẢNH THẬT THEO ĐÚNG THỨ TỰ) ----------
     const members = [
       { 
         name: "Lưu Nguyễn Giang Châu", role: "Trưởng nhóm", 
-        class: "12A10", hobby: "tham gia vui chơi,tìm hiểu điều mới", 
+        class: "12A10", hobby: "Chụp ảnh phong cảnh, viết lịch Tết", 
         trait: "Năng động, sáng tạo, thổi hồn Tết", 
         wish: "🧧 Xuân an lành, vạn sự như ý!",
-        photoUrl: "chau.jpg",
-        dob: "06/05/2008"
+        photoUrl: "chau.jpg"
       },
       { 
         name: "Nguyễn Thị Quỳnh Mai", role: "Thành viên", 
         class: "12A10", hobby: "Đọc sách, xem phim", 
         trait: "Tỉ mỉ, có giọng hát hay, vui vẻ năng động", 
         wish: "🌸 Cung chúc tân niên, đỗ nguyện vọng 1!",
-        photoUrl: "mai.jpg",
-        dob: "21/01/2008"
+        photoUrl: "mai.jpg"
       },
       { 
         name: "Phạm Thị Ngọc Yến", role: "Thành viên", 
         class: "12A10", hobby: "tiền là nhất, chơi fifai, chơi thể thao", 
-        trait: "Khéo tay,ham học hỏi", 
+        trait: "Khéo tay, vẽ hoa đào siêu đẹp", 
         wish: "🧧 Tiền vô như nước, sức khỏe dồi dào!",
-        photoUrl: "yen.jpg",
-        dob: "02/09/2008"
+        photoUrl: "yen.jpg"
       },
       { 
         name: "Nguyễn Như Ngọc", role: "Thành viên", 
-        class: "12A10", hobby: "các món ngon ngày tết, cuộc vui nào cũng có", 
+        class: "12A10", hobby: "các món ngon ngày tết,cuộc vui nào cũng có", 
         trait: "hoạt bát tích cực, truyền cảm hứng Tết", 
         wish: "🎋 Năm mới bình an, học giỏi!",
-        photoUrl: "ngoc.jpg",
-        dob: "26/09/2008"
+        photoUrl: "ngoc.jpg"
       },
       { 
         name: "Phùng Văn Hạnh", role: "Thành viên", 
         class: "12A10", hobby: "chơi thể thao, mang tiền về cho mẹ", 
         trait: "Nhiệt huyết, tự lập", 
         wish: "🦁 Phát tài phát lộc, lân đến nhà!",
-        photoUrl: "hanh.jpg",
-        dob: "18/08/2008"
+        photoUrl: "hanh.jpg"
       },
       { 
         name: "Hoàng Thị Hồng Nhung", role: "Thành viên", 
         class: "12A10", hobby: "du lịch", 
-        trait: "dịu dàng, hoà nhã", 
+        trait: "dịu dàng,hoà nhã", 
         wish: "🍊 Xuân sang cát tường, vạn sự hanh thông!",
-        photoUrl: "nhung.jpg",
-        dob: "23/03/2008"
+        photoUrl: "nhung.jpg"
       }
     ];
 
@@ -643,7 +642,7 @@
 
     floatingHomeBtn.addEventListener('click', showHomepage);
 
-    // ---------- THÀNH VIÊN: RENDER DANH SÁCH TÊN + CHI TIẾT (ĐÃ THÊM NGÀY SINH) ----------
+    // ---------- THÀNH VIÊN: RENDER DANH SÁCH TÊN + CHI TIẾT (TẤT CẢ 6 ẢNH) ----------
     const memberListDiv = document.getElementById('memberNameList');
     const memberListView = document.getElementById('memberListView');
     const memberDetailView = document.getElementById('memberDetailView');
@@ -673,7 +672,7 @@
 
     function showMemberDetail(index) {
       const m = members[index];
-      // LUÔN HIỂN THỊ ẢNH THẬT CHO TẤT CẢ 6 THÀNH VIÊN + NGÀY SINH
+      // LUÔN HIỂN THỊ ẢNH THẬT CHO TẤT CẢ 6 THÀNH VIÊN
       let detailHtml = `
         <img src="${m.photoUrl}" alt="${m.name}" class="member-photo"
              onerror="this.onerror=null; this.src='https://via.placeholder.com/200x200?text=Photo';">
@@ -681,7 +680,6 @@
         <p style="background: #ffd966; display: inline-block; padding: 8px 30px; border-radius: 50px; font-weight: 600; margin: 10px auto; text-align: center;">${m.role}</p>
         <div class="detail-info">
           <p><i class="fas fa-graduation-cap" style="width: 30px;"></i> Lớp: ${m.class}</p>
-          <p><i class="fas fa-cake-candles" style="width: 30px;"></i> Ngày sinh: ${m.dob}</p>
           <p><i class="fas fa-heart" style="width: 30px;"></i> Sở thích: ${m.hobby}</p>
           <p><i class="fas fa-crown" style="width: 30px;"></i> Đặc điểm nổi bật: ${m.trait}</p>
           <p style="margin-top: 20px; background: #b03939; color: white; padding: 16px; border-radius: 30px; font-style: italic;">🌟 Lời chúc Tết: ${m.wish}</p>
